@@ -1,0 +1,38 @@
+{
+	"name": "snippets",
+    "displayName": "Firestitch Snippets",
+    "scripts": {
+        "publish": "vsce publish"
+    },
+	"description": "",
+	"version": "1.0.4",
+	"publisher": "Firestitch",
+	"icon": "icon.png",
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:Firestitch/vs-snippets.git"
+	},
+	"engines": {
+		"vscode": "^1.37.0"
+	},
+	"categories": [
+		"Snippets"
+	],
+	"contributes": {
+		"snippets": [
+			{
+				"language": "html",
+				"path": "./html/snippets.json"
+			},
+			{
+				"language": "typescript",
+				"path": "./typescript/snippets.json"
+			}
+		]
+	},
+	"__metadata": {
+		"id": "eedaaf50-c95e-479c-a18d-77f3ec11b8bd",
+		"publisherDisplayName": "Firestitch",
+		"publisherId": "b80d85a0-8812-4b66-9727-4ede32aef59b"
+	}
+}

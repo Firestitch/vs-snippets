@@ -1,0 +1,82 @@
+{
+  "Material Button": {
+    "prefix": "@fs/button",
+    "body": [
+      "<button ${1:mat-rasied-button} color=\"primary\">$2</button>"
+    ]
+  },
+  "Material Select": {
+    "prefix": "@fs/select",
+    "body": [
+      "<mat-form-field>",
+      "  <mat-select",
+      "    [(ngModel)]=\"model.$1\"",
+      "    name=\"$1\"",
+      "    placeholder=\"$1\">",
+      "      <mat-option",
+      "        *ngFor=\"let item of items\"",
+      "        [value]=\"item.id\">",
+      "          {{ item.name }}",
+      "      </mat-option>",
+      "  </mat-select>",
+      "</mat-form-field>"
+    ]
+  },
+  "Material Input": {
+    "prefix": "@fs/input",
+    "body": [
+      "<mat-form-field>",
+      "  <input",
+      "    matInput",
+      "    [(ngModel)]=\"model.$1\"",
+      "    name=\"$1\"",
+      "    placeholder=\"$1\">",
+      "</mat-form-field>"
+    ]
+  },
+  "Material Textarea": {
+    "prefix": "@fs/textarea",
+    "body": [
+      "<mat-form-field>",
+      "  <textarea",
+      "    matInput",
+      "    cdkTextareaAutosize",
+      "    [(ngModel)]=\"model.$1\"",
+      "    name=\"$1\"",
+      "    placeholder=\"$1\">",
+      "  </textarea>",
+      "</mat-form-field>"
+    ]
+  },
+  "Firestitch Label Field": {
+    "prefix": "@fs/label-field",
+    "body": [
+      "<fs-label-field>",
+      "  <fs-label>$1</fs-label>",
+      "  $2",
+      "</fs-label-field>"
+    ]
+  },
+  "Flex Row": {
+    "prefix": "@fs/row",
+    "body": [
+      "<div fxLayout=\"row\" fxLayoutAlign=\"${1:start} ${2:center}\">",
+      "  <div>",
+      "    $3",
+      "  </div>",
+      "</div>"
+    ]
+  },
+  "Flex Column": {
+    "prefix": "@fs/column",
+    "body": [
+      "<div fxLayout=\"column\">",
+      "  <div>",
+      "    $1",
+      "  </div>",
+      "</div>"
+    ]
+  }
+}
+
+
