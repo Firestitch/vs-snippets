@@ -2,7 +2,11 @@
   "Material Button": {
     "prefix": "@fs/button",
     "body": [
-      "<button ${1:mat-rasied-button} color=\"primary\">$2</button>"
+      "<button",
+      "  ${1:mat-raised-button}",
+      "  color=\"primary\">",
+      "  $2",
+      "</button>"
     ]
   },
   "Material Select": {
@@ -10,9 +14,9 @@
     "body": [
       "<mat-form-field>",
       "  <mat-select",
-      "    [(ngModel)]=\"model.$1\"",
-      "    name=\"$1\"",
-      "    placeholder=\"$1\">",
+      "    [(ngModel)]=\"$1\"",
+      "    name=\"${1/.*?([^.]+)$/$1/}\"",
+      "    placeholder=\"${1/(^.|_.|\\..)/${1:/upcase}/g}\">",
       "      <mat-option",
       "        *ngFor=\"let item of items\"",
       "        [value]=\"item.id\">",
@@ -28,9 +32,9 @@
       "<mat-form-field>",
       "  <input",
       "    matInput",
-      "    [(ngModel)]=\"model.$1\"",
-      "    name=\"$1\"",
-      "    placeholder=\"$1\">",
+      "    [(ngModel)]=\"$1\"",
+      "    name=\"${1/.*?([^.]+)$/$1/}\"",
+      "    placeholder=\"${1/(^.|_.|\\..)/${1:/upcase}/g}\">",
       "</mat-form-field>"
     ]
   },
@@ -41,11 +45,99 @@
       "  <textarea",
       "    matInput",
       "    cdkTextareaAutosize",
-      "    [(ngModel)]=\"model.$1\"",
-      "    name=\"$1\"",
-      "    placeholder=\"$1\">",
+      "    [(ngModel)]=\"$1\"",
+      "    name=\"${1/.*?([^.]+)$/$1/}\"",
+      "    placeholder=\"${1/(^.|_.|\\..)/${1:/upcase}/g}\">",
       "  </textarea>",
       "</mat-form-field>"
+    ]
+  },
+  "Firestitch Radio Button Group": {
+    "prefix": "@fs/radio-group",
+    "body": [
+      "<fs-radio-group",
+      "  [(ngModel)]=\"$1\"",
+      "  label=\"${1/(^.|_.|\\..)/${1:/upcase}/g}\"",
+      "  name=\"${1/.*?([^.]+)$/$1/}\"",
+      "  orientation=\"${2:horizontal}\">",
+      "  <mat-radio-button",
+      "    *ngFor=\"let item of items\" [value]=\"item.name\">",
+      "    {{ item.value }}",
+      "  </mat-radio-button>",
+      "</fs-radio-group>"
+    ]
+  },
+  "Firestitch Checkbox Group": {
+    "prefix": "@fs/checkbox-group",
+    "body": [
+      "<fs-checkbox-group",
+      "  [(ngModel)]=\"$1\"",
+      "  label=\"${1/(^.|_.|\\..)/${1:/upcase}/g}\"",
+      "  name=\"${1/.*?([^.]+)$/$1/}\"",
+      "  orientation=\"${2:horizontal}\">",
+      "  <mat-checkbox",
+      "    *ngFor=\"let item of items\" [value]=\"item.name\">",
+      "    {{ item.value }}",
+      "  </mat-checkbox>",
+      "</fs-checkbox-group>"
+    ]
+  },
+  "Firestitch Scroll Date Picker": {
+    "prefix": "@fs/date-scroll-picker",
+    "body": [
+      "<mat-form-field>",
+      "  <input",
+      "    matInput",
+      "    fsDateScrollPicker",
+      "    [showDay]=\"false\"",
+      "    [(ngModel)]=\"$1\"",
+      "    name=\"${1/.*?([^.]+)$/$1/}\"",
+      "    placeholder=\"${1/(^.|_.|\\..)/${1:/upcase}/g}\">",
+      "</mat-form-field>"
+    ]
+  },
+  "Firestitch Autocomplete": {
+    "prefix": "@fs/autocomplete",
+    "body": [
+      "<fs-autocomplete",
+      "  [fetch]=\"fetch\"",
+      "  [fetchOnFocus]=\"false\"",
+      "  [displayWith]=\"displayWith\"",
+      "  [(ngModel)]=\"$1\"",
+      "  placeholder=\"${1/(^.|_.|\\..)/${1:/upcase}/g}\"",
+      "  name=\"${1/.*?([^.]+)$/$1/}\">",
+      "  <ng-template fsAutocompleteTemplate let-data=\"data\">",
+      "    {{ data.name }}",
+      "  </ng-template>",
+      "  <ng-template fsAutocompleteStaticTemplate>",
+      "    <div (click)=\"create($event)\">Create</div>",
+      "  </ng-template>",
+      "</fs-autocomplete>"
+    ]
+  },
+  "Firestitch Scroll Date": {
+    "prefix": "@fs/date-picker",
+    "body": [
+      "<mat-form-field>",
+      "  <input",
+      "    matInput",
+      "    fsDatePicker",
+      "    [(ngModel)]=\"$1\"",
+      "    name=\"${1/.*?([^.]+)$/$1/}\"",
+      "    placeholder=\"${1/(^.|_.|\\..)/${1:/upcase}/g}\">",
+      "</mat-form-field>"
+    ]
+  },
+  "Firestitch List": {
+    "prefix": "@fs/list",
+    "body": [
+      "<fs-list [config]=\"config\" #list>",
+      "  <fs-list-column title=\"$1\" name=\"${1/(.*)/${1:/downcase}/g}\" [sortable]=\"${2|false,true|}\">",
+      "    <ng-template fs-list-cell let-row=\"row\">",
+      "      {{row}}",
+      "    </ng-template>",
+      "  </fs-list-column>",
+      "</fs-list>"
     ]
   },
   "Firestitch Label Field": {
@@ -60,20 +152,19 @@
   "Flex Row": {
     "prefix": "@fs/row",
     "body": [
-      "<div fxLayout=\"row\" fxLayoutAlign=\"${1:start} ${2:center}\">",
-      "  <div>",
+      "<div",
+      "  fxLayout=\"row\"",
+      "  fxLayoutAlign=\"${1:start} ${2:center}\">",
       "    $3",
-      "  </div>",
       "</div>"
     ]
   },
   "Flex Column": {
     "prefix": "@fs/column",
     "body": [
-      "<div fxLayout=\"column\">",
-      "  <div>",
+      "<div",
+      "  fxLayout=\"column\">",
       "    $1",
-      "  </div>",
       "</div>"
     ]
   }

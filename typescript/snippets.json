@@ -10,6 +10,41 @@
       "}"
     ]
   },
+  "Route Observer": {
+    "prefix": "@fs/route-observer",
+    "body": [
+      "private _routeObserver = new RouteObserver(this._route, '$1');",
+      "",
+      "//constructor(private _route: ActivatedRoute)",
+      "",
+      "this._routeObserver.observer$",
+      "  .pipe(",
+      "    takeUntil(this._destroy$)",
+      "  )",
+      "  .subscribe(response => {",
+      "    $2",
+      "  });"
+    ]
+  },
+  "Control Value Accessor": {
+    "prefix": "@fs/control-value-accessor",
+    "body": [
+      "// Decorator",
+      "providers: [{",
+      " provide: NG_VALUE_ACCESSOR,",
+      "  useExisting: $1,",
+      "  multi: true",
+      "}]",
+      "",
+      "public writeValue(value) {}",
+      "",
+      "public registerOnChange(_) { this.onChange = _; }",
+      "public registerOnTouched(_) {}",
+      "",
+      "public onChange: any = () => {}",
+      "public onTouch: any = () => {}"
+    ]
+  },
   "Subscribe": {
     "prefix": "@fs/subscribe",
     "body": [
@@ -25,6 +60,65 @@
     "prefix": "@fs/console",
     "body": [
       "console.log($1)"
+    ]
+  },
+  "Firestitch List": {
+    "prefix": "@fs/list",
+    "body": [
+      "public config: FsListConfig;",
+      "",
+      "this.config = {",
+      "  filters: [",
+      "    {",
+      "      name: 'keyword',",
+      "      type: ItemType.Text,",
+      "      label: 'Search'",
+      "    },",
+      "    {",
+      "      name: 'select',",
+      "      type: ItemType.Select,",
+      "      label: 'Simple Select',",
+      "      values: () => {",
+      "        return [",
+      "          { name: 'All', value: null },",
+      "          { name: 'Option 1', value: 1 },",
+      "          { name: 'Option 2', value: 2 }",
+      "        ];",
+      "      }",
+      "    },",
+      "    {",
+      "      name: 'date',",
+      "      type: ItemType.Date,",
+      "      label: 'Date'",
+      "    },",
+      "  ],",
+      "  reorder: {",
+      "    start: () => {",
+      "      console.log('Reorder Started');",
+      "    },",
+      "    done: (data) => {",
+      "      console.log('Reorder Done',data);",
+      "    }",
+      "  },",
+      "  actions: [",
+      "    {",
+      "      click: (event) => {},",
+      "      label: 'Create'",
+      "    }",
+      "  ],",
+      "  rowActions: [",
+      "    {",
+      "      click: (row, event) => {},",
+      "      label: 'Delete'",
+      "    }",
+      "  ],",
+      "  fetch: (query) => {",
+      "    return of()",
+      "      .pipe(",
+      "        map(response => ({ data: response.data, paging: response.paging })),",
+      "      );",
+      "  },",
+      "};"
     ]
   }
 }
