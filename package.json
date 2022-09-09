@@ -5,7 +5,7 @@
       "publish": "vsce publish"
     },
 	"description": "",
-	"version": "1.0.20",
+	"version": "1.0.21",
 	"publisher": "Firestitch",
 	"icon": "icon.png",
 	"repository": {

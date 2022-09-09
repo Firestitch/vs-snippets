@@ -153,6 +153,31 @@
       "    $1",
       "</div>"
     ]
+  },
+  "Firestitch Dialog": {
+    "prefix": "@fs/dialog",
+    "body": [
+      "<form fsForm [submit]=\"save\">",
+      "  <fs-dialog>",
+      "    <h1 mat-dialog-title>$1</h1>",
+      "    <mat-dialog-content>",
+      "    </mat-dialog-content>",
+      "    <mat-dialog-actions>",
+      "      <fs-form-dialog-actions",
+      "        [create]=\"!$2.id\">",
+      "      </fs-form-dialog-actions>",
+      "      <!--",
+      "      <button",
+      "          type=\"button\"",
+      "          mat-button",
+      "          [mat-dialog-close]=\"null\">",
+      "        Cancel",
+      "      </button>",
+      "      -->",
+      "    </mat-dialog-actions>",
+      "  </fs-dialog>",
+      "</form>"
+    ]
   }
 }
 

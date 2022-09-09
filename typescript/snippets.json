@@ -95,5 +95,28 @@
       "  },",
       "};"
     ]
+  },
+  "Firestitch Dialog": {
+    "prefix": "@fs/dialog",
+    "body": [
+      "@Inject(MAT_DIALOG_DATA) private _data: any,",
+      "private _dialogRef: MatDialogRef<>,"
+    ]
+  },
+  "Firestitch Dialog Open": {
+    "prefix": "@fs/dialog-open",
+    "body": [
+      "private _dialog: MatDialog,",
+      "",
+      "this._dialog.open(, {",
+      "  data: {},",
+      "})",
+      "  .afterClosed()",
+      "  .pipe(",
+      "    takeUntil(this._destroy$),",
+      "  )",
+      "  .subscribe(() => {",
+      "  });"
+    ]
   }
 }
