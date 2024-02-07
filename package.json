@@ -2,10 +2,11 @@
 	"name": "snippets",
     "displayName": "Firestitch Snippets",
     "scripts": {
-      "publish": "vsce publish"
+      "publish": "vsce publish -p zryeonbkiafjpkhv2bonwll5zqtoonezg7ea3ehy7zoksfezucwa",
+			"token": "https://dev.azure.com/ray0276/_usersSettings/tokens"
     },
 	"description": "",
-	"version": "1.0.21",
+	"version": "1.0.24",
 	"publisher": "Firestitch",
 	"icon": "icon.png",
 	"repository": {

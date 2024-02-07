@@ -100,18 +100,34 @@
     "body": [
       "<fs-autocomplete",
       "    [fetch]=\"fetch\"",
-      "    [fetchOnFocus]=\"false\"",
       "    [displayWith]=\"displayWith\"",
+      "    [fetchOnFocus]=\"true\"",
       "    [(ngModel)]=\"$1\"",
       "    placeholder=\"${1/(^.|_.|\\..)/${1:/upcase}/g}\"",
       "    name=\"${1/.*?([^.]+)$/$1/}\">",
       "  <ng-template fsAutocompleteTemplate let-data=\"data\">",
-      "    {{ data.name }}",
+      "    {{data.name}}",
       "  </ng-template>",
       "  <ng-template fsAutocompleteStaticTemplate>",
       "    <div (click)=\"create($event)\">Create</div>",
       "  </ng-template>",
       "</fs-autocomplete>"
+    ]
+  },
+  "Firestitch Autocomplete Chips": {
+    "prefix": "@fs/autocomplete-chips",
+    "body": [
+      "<fs-autocomplete-chips",
+      "    [(ngModel)]=\"$1\"",
+      "    [fetch]=\"fetch${1/([^\\.]+)$/${1:/capitalize}/}\"",
+      "    [displayWith]=\"displayWith${1/([^\\.]+)$/${1:/capitalize}/}\"",
+      "    [fetchOnFocus]=\"true\"",
+      "    [placeholder]=\"'${1/(.*)/${1:/capitalize}/}'\"",
+      "    name=\"${1/([^\\.]+)$/${1:/downcase}/}\">",
+      "  <ng-template fsAutocompleteObject let-object=\"object\">",
+      "    {{object.name}}",
+      "  </ng-template>",
+      "</fs-autocomplete-chips>"
     ]
   },
   "Firestitch List": {

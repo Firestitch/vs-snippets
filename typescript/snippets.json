@@ -118,5 +118,19 @@
       "  .subscribe(() => {",
       "  });"
     ]
+  },
+  "Firestitch Autocomplete Chips": {
+    "prefix": "@fs/autocomplete-chips",
+    "body": [
+      "public fetch${1/(.*)/${1:/capitalize}/} = (keyword) => {",
+      "  return;",
+      "};",
+      "",
+      "public displayWith${1/(.*)/${1:/capitalize}/} = (data) => {",
+      "  return data?.name;",
+      "};"
+    ]
   }
 }
+
+
